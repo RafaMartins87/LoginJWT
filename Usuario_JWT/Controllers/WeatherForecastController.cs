@@ -8,8 +8,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Usuario_JWT.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    [ApiController]    
+    [Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

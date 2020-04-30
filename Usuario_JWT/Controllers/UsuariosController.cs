@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ namespace WebApiUsuarios.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class UsuariosController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -30,6 +32,7 @@ namespace WebApiUsuarios.Controllers
             _configuration = configuration;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<string> Get()
         {
